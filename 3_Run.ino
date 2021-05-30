@@ -1,18 +1,29 @@
 
 
-static int Run_B_(struct pt * pt) {
-  static unsigned long PWM_HIGH = PWM_HIGH;
-  static unsigned long Section = SEC_B;
-  static unsigned long Wait = SEC_B_WAIT;
-  static unsigned long Duration = SEC_B_DURATION;
- // static unsigned long Ramp_Time_Increment = SEC_B_PWM_INCREMENT;
-  static unsigned long Start_Time_Marker;
-  static unsigned long StartRampUp = Wait;
-  static unsigned long StartRampDown = Wait + Duration;
-  static unsigned long GoOffTime;
-  static unsigned long Stay_Off_Time;
-  static unsigned long This_PWM;
-  static unsigned long Next_Ramp_Time;
+static int Run(struct pt * pt, int Section) {
+
+
+  int Wait = SEC_A_WAIT;
+  int Duration = SEC_A_DURATION;
+ // int Ramp_Time_Increment = SEC_A_PWM_INCREMENT;
+  int Start_Time_Marker;
+  int StartRampUp = Wait;
+  int StartRampDown = Wait + Duration;
+  int GoOffTime;
+  int Stay_Off_Time;
+  int This_PWM;
+  int Next_Ramp_Time;
+
+//  
+//
+//if (Section == SEC_A) {
+//  
+//}
+
+
+
+
+
 
   PT_BEGIN(pt);
   while (1) {
@@ -106,9 +117,6 @@ static int Run_B_(struct pt * pt) {
     Next_Ramp_Time = (Next_Ramp_Time + Ramp_Time_Increment);
     This_PWM = This_PWM - Ramp_PWM_Increment;
     Analog_Write(Section, This_PWM);
-
-
-
 
 
     // Go Off

@@ -1,7 +1,7 @@
 
 
 static int Run_C_(struct pt * pt) {
-  static unsigned long PWM_High = PWM_HIGH;
+  static unsigned long PWM_HIGH = PWM_HIGH;
   static unsigned long Section = SEC_C;
   static unsigned long Wait = SEC_C_WAIT;
   static unsigned long Duration = SEC_C_DURATION;
@@ -69,7 +69,7 @@ static int Run_C_(struct pt * pt) {
     // Ramp Down
     PT_WAIT_UNTIL(pt, millis() - Start_Time_Marker >= StartRampDown);
     Next_Ramp_Time = (StartRampDown + Ramp_Time_Increment);// Different for this first one
-    This_PWM = PWM_High - Ramp_PWM_Increment;// Different for this first one
+    This_PWM = PWM_HIGH - Ramp_PWM_Increment;// Different for this first one
     Analog_Write(Section, This_PWM);
 
     PT_WAIT_UNTIL(pt, millis() - Start_Time_Marker >= Next_Ramp_Time);

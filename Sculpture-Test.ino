@@ -45,25 +45,3 @@ unsigned long SEC_D_DURATION = 1000;
 
 
 static struct pt pt1, pt2, pt3, pt4;
-
-void setup() {
-  pinMode(SEC_A, OUTPUT);
-  pinMode(SEC_B, OUTPUT);
-  pinMode(SEC_C, OUTPUT);
-  pinMode(SEC_D, OUTPUT);
-
-  PT_INIT(&pt1);
-  PT_INIT(&pt2);
-  PT_INIT(&pt3);
-  PT_INIT(&pt4);
-
-  Serial.begin(115200);
-  while (! Serial);
-
-
-
-  analogWrite(SEC_A, 0);
-  analogWrite(SEC_B, 0);
-  analogWrite(SEC_C, 0);
-  analogWrite(SEC_D, 0);
-}
