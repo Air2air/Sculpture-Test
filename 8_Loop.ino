@@ -14,7 +14,7 @@ void setup() {
   PT_INIT(&pt3);
   PT_INIT(&pt4);
 
-    reseedRandom( &reseedRandomSeed);
+  reseedRandom( &reseedRandomSeed);
 
   Serial.begin(115200);
   while (! Serial);
@@ -28,8 +28,6 @@ void setup() {
 void loop() {
 
   SeedValue = analogRead(A0);
-
-
 
   ChooseSection();
 

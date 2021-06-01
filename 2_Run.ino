@@ -2,10 +2,7 @@
 
 static int Run(struct pt * pt, int Section) {
 
-
-  int Wait = SEC_A_WAIT;
-  int Duration = SEC_A_DURATION;
- // int Ramp_Time_Increment = SEC_A_PWM_INCREMENT;
+  int Wait = random(1000, 3000);
   int Start_Time_Marker;
   int StartRampUp = Wait;
   int StartRampDown = Wait + Duration;
@@ -14,25 +11,18 @@ static int Run(struct pt * pt, int Section) {
   int This_PWM;
   int Next_Ramp_Time;
 
-//  
-//
-//if (Section == SEC_A) {
-//  
-//}
-
-
-
-
-
 
   PT_BEGIN(pt);
   while (1) {
-    Start_Time_Marker = millis();
+    Start_Time_Marker = Wait + millis();
 
     //Start
     if (Print_Serial) {
       Serial_Start(Section, Wait);
     }
+
+    Serial.print("Ramp_Time_Increment: ");
+    Serial.println(Ramp_Time_Increment);
 
     // Ramp Up
     PT_WAIT_UNTIL(pt, millis() - Start_Time_Marker >= StartRampUp);
@@ -121,18 +111,11 @@ static int Run(struct pt * pt, int Section) {
 
     // Go Off
     PT_WAIT_UNTIL(pt, millis() - Start_Time_Marker >= Next_Ramp_Time);
-    GoOffTime = Next_Ramp_Time;
-    Stay_Off_Time = Run_Duration - Next_Ramp_Time;
     Analog_Write(Section, PWM_LOW);
     if (Print_Serial) {
-      Serial_Off(Section, Next_Ramp_Time, Stay_Off_Time );
+      Serial_Off(Section, Next_Ramp_Time );
     }
 
-    // Run duration ended
-    PT_WAIT_UNTIL(pt, millis() - Start_Time_Marker >= Run_Duration); // End Loop if stride duration has elapsed
-    if (Print_Serial) {
-      Serial_End(Section, Run_Duration);
-    }
     PT_END(pt);
   }
 }

@@ -30,13 +30,10 @@ void Serial_Wait(int Section, int Start_PWM_HIGH, int PWM_HIGH, int Duration ) {
   Serial.println(Duration);
 }
 
-void Serial_Off(int Section, int GoOffTime, int StayOffTime) {
+void Serial_Off(int Section, int GoOffTime) {
   Print_Section(Section);
   Serial.print("going OFF at ");
-  Serial.print(GoOffTime);
-  Serial.print(" with ");
-  Serial.print(StayOffTime);
-  Serial.println(" remaining");
+  Serial.println(GoOffTime);
 }
 
 void Serial_End(int Section, int EndLoopTime) {

@@ -7,6 +7,11 @@ unsigned long SEC_D_PWM_HIGH = PWM_HIGH * _D_Bias;
 
 unsigned long PWM_VAL = 0;
 
+unsigned long SEC_A_PWM_INCREMENT = 70;
+unsigned long SEC_B_PWM_INCREMENT = 70;
+unsigned long SEC_C_PWM_INCREMENT = 70;
+unsigned long SEC_D_PWM_INCREMENT = 70;
+
 
 /*--- Analog Write ----*/
 void Analog_Write(int Section, int PWM_VAL) {

@@ -1,8 +1,8 @@
 
 
 /*---------- Section Choice for 4 wires -----------*/
-int ActiveSection;// Just for Startup
-int PreviousSection;// Just for Startup
+int ActiveSection;
+int PreviousSection;
 int RandSectionSelection;
 int SectionChoice1;
 int SectionChoice2;
@@ -58,7 +58,7 @@ void ChooseSection() {
 
   RandSectionSelection = random(3);
 
-  if (RandSectionSelection == 0) { // If index[0]
+  if (RandSectionSelection == 0) { 
     ActiveSection = SectionChoice1;
   }
   else if (RandSectionSelection == 1) {
@@ -73,6 +73,22 @@ void ChooseSection() {
   Serial.println(RandSectionSelection);
   Serial.print("ActiveSection: ");
   Serial.println(ActiveSection);
+
+
+
+if (ActiveSection == SEC_A) {
+  Run(&pt1, SEC_A);
+  //Run_A_(&pt1);
+} else if (ActiveSection == SEC_B) {
+  Run(&pt2, SEC_B);
+  //Run_B_(&pt2);
+} else if (ActiveSection == SEC_C) {
+  Run(&pt3, SEC_C);
+  //Run_C_(&pt3);
+  } else if (ActiveSection == SEC_D) {
+  Run(&pt4, SEC_D);
+  //Run_D_(&pt4);
+  }
 
   PreviousSection = ActiveSection;
 
