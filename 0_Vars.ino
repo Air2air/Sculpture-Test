@@ -1,9 +1,9 @@
 
 /*--- Biasing ----*/
-unsigned long SEC_A_PWM_HIGH = PWM_HIGH * _A_Bias;
-unsigned long SEC_B_PWM_HIGH = PWM_HIGH * _B_Bias;
-unsigned long SEC_C_PWM_HIGH = PWM_HIGH * _C_Bias;
-unsigned long SEC_D_PWM_HIGH = PWM_HIGH * _D_Bias;
+unsigned long SEC_A_PWM_HIGH = PWM_HIGH * _ABias;
+unsigned long SEC_B_PWM_HIGH = PWM_HIGH * _BBias;
+unsigned long SEC_C_PWM_HIGH = PWM_HIGH * _CBias;
+unsigned long SEC_D_PWM_HIGH = PWM_HIGH * _DBias;
 
 unsigned long PWM_VAL = 0;
 

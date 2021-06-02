@@ -1,11 +1,22 @@
-// #include <Arduino.h>
-#include <pt.h>
+
+
+
 
 int Section = 0;
 //unsigned long Duration = 8000;
 
+const int SEC_A = 11;
+const int SEC_B = 10;
+const int SEC_C = 9;
+const int SEC_D = 6;
 
 bool Print_Serial = 1;
+
+
+
+int SEC_A_PWM = 0;
+
+int Duration = 1000;
 
 /* Master PWM */
 int PWM_HIGH = 50;
@@ -20,23 +31,24 @@ const int WaitMin = 3000;
 const int WaitMax = 6000;
 
 unsigned int NumRampLoops = 5;
+unsigned int RampLoopIndex = 0;
 const int Ramp_PWM_Increment = PWM_HIGH / NumRampLoops;
 
 /* Ramp */
-unsigned long Ramp_Time_Increment = 120;
+unsigned long Ramp_Time_Increment = 60;
 
 
-/* _A_ */
-float _A_Bias = .6;
+/* _A */
+float _ABias = .6;
 
 
-/* _B_ */
-float _B_Bias = .8;
+/* _B */
+float _BBias = .8;
 
 
-/* _C_ */
-float _C_Bias = .8;
+/* _C */
+float _CBias = .8;
 
 
-/* _D_ */
-float _D_Bias = 1.2;
+/* _D */
+float _DBias = 1.2;
